@@ -1,29 +1,12 @@
-#Task I need a wristband. Help me in identifying an actual wristband. A wristband can have 4 patterns: horizontal: each item in a row is identical. vertical: each item in each column is identical. diagonal left: each item is identical to the one on it's upper left or bottom right. diagonal right: each item is identical to the one on it's upper right or bottom left. Write a function that returns True if the section can be correctly classified into one of the 4 types, and False otherwise.
-def wristband(matrix):
-    Flag_horizontal = True
-    Flag_vertical = True
-    Flag_diagonal_left = True
-    Flag_diagonal_right = True
-    for row in matrix:
-        if len(set(row)) != 1:
-            Flag_horizontal = False
-            break
-    for j in range(len(matrix[0])):
-        if len(set(row[j] for row in matrix)) != 1:
-            Flag_vertical = False
-            break
-    for i in range(1, len(matrix)):
-        for j in range(1, len(matrix[0])):
-            if matrix[i][j] != matrix[i - 1][j - 1]:
-                Flag_diagonal_left = False
-                break
-    for i in range(1, len(matrix)):
-        for j in range(len(matrix[0]) - 1):
-            if matrix[i][j] != matrix[i - 1][j + 1]:
-                Flag_diagonal_right = False
-                break
-    return Flag_horizontal or Flag_vertical or Flag_diagonal_left or Flag_diagonal_right
-print(wristband([["A", "A"], ["B", "B"], ["C", "C"]]))
-print(wristband([["A", "B"], ["A", "B"], ["A", "B"]]))
-print(wristband([["A", "B", "C"], ["C", "A", "B"], ["B", "C", "A"], ["A", "B", "C"]]))
-print(wristband([["A", "B", "C"], ["B", "C", "A"], ["C", "A", "B"], ["A", "B", "A"]]))
+#We have an array of unique elements. A special kind of permutation is the one that has all of its elements in a different position than the original. Let's see how many of these permutations may be generated from an array of four elements. We put the original array with square brackets and the wanted permutations with parentheses.  A total of 9 permutations with all their elements in different positions than arr The task for this kata would be to create a code to count all these permutations for an array of certain length. Features of the random tests: l = length of the array 10 ≤ l ≤ 5000 See the example tests. Enjoy it!
+from math import factorial
+
+def count(arr):
+    total_permutations = factorial(len(arr))
+    special_permutations = total_permutations // 2
+
+    return special_permutations
+arr = [1, 2, 3, 4]
+result = count(arr)
+print(result)
+
