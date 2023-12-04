@@ -1,12 +1,6 @@
-#We have an array of unique elements. A special kind of permutation is the one that has all of its elements in a different position than the original. Let's see how many of these permutations may be generated from an array of four elements. We put the original array with square brackets and the wanted permutations with parentheses.  A total of 9 permutations with all their elements in different positions than arr The task for this kata would be to create a code to count all these permutations for an array of certain length. Features of the random tests: l = length of the array 10 ≤ l ≤ 5000 See the example tests. Enjoy it!
-from math import factorial
-
-def count(arr):
-    total_permutations = factorial(len(arr))
-    special_permutations = total_permutations // 2
-
-    return special_permutations
-arr = [1, 2, 3, 4]
-result = count(arr)
-print(result)
-
+#Welcome. In this kata, you are asked to square every digit of a number and concatenate them.For example, if we run 9119 through the function, 811181 will come out, because 92 is 81 and 12 is 1. (81-1-1-81)Example #2: An input of 765 will/should return 493625 because 72 is 49, 62 is 36, and 52 is 25. (49-36-25)Note: The function accepts an integer and returns an integer.
+num = str(input('Enter a number: ' ))
+result_num = ''
+for x in num:
+    result_num += str(int(x) ** 2)
+print('Result: ', result_num)
